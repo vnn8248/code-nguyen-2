@@ -1,0 +1,136 @@
+html {
+    overflow-x: hidden;
+}
+  
+body {
+    font-family: 'Noto Serif', serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, a {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.container-fluid {
+    margin-top: 100px;
+}
+
+
+.hero {
+    margin-bottom: 0;
+}
+
+.hero * {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.bio-section {
+    color: #fff;
+    background-color: #3c4f5c;
+    text-align: center;
+    padding: 50px 100px;
+}
+
+
+
+.skills-section .row {
+    background-color: #e9ecef;
+    border-radius: 10px;
+    margin: auto;
+    padding: 20px 100px;
+}
+
+.skills-section h3 {
+    text-align: center;
+}
+
+.portfolio-section h1 {
+    text-align: center;
+}
+
+.portfolio-section .container, .blog-section .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+
+.portfolio-feature, .blog-feature {
+    width: 300px;
+    height: 250px;
+    display: inline-block;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.testimonial-section h1, .testimonial-name {
+    text-align: center;
+}
+
+.testimonial-image-div {
+    background-image: url("../images/jpeg/profile.jpg");
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #e9ecef;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+
+.blockquote {
+    display: block;
+    margin: auto;
+}
+
+.cta-section .container {
+    background-color: #e9ecef;
+    border-radius: 10px;
+    padding: 50px;
+    margin: auto;
+    position: relative;
+}
+
+.cta-btn, .cta-text {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.blog-section h1, .blog-section h3 {
+    text-align: center;
+}
+
+.blog-section .container {
+    margin: auto;
+}
+
+.footer {
+    color: #fff;
+    padding: 50px 100px 0px;
+}
+
+.footer-top {
+    border-bottom: 1px solid #fff;
+}
+
+.footer-bottom {
+    position: relative;
+} 
+
+
+
+.signature {
+    text-align: center;
+    font-size: 10px;
+    margin-bottom: 0;
+}
+
+.feature-blog-image {
+    width: 100%;
+    display: block;
+    margin: auto;
+}

@@ -1,0 +1,130 @@
+<%- include("partials/header"); %>
+<%- include("partials/navbar"); %>
+<%- include("partials/hero"); %>
+
+<div class="container-fluid bio-section">
+    <div class="container">
+        <h1>Hi, I'm Bi Nguyen.</h1>
+        <p></p>
+        <% bioArray.forEach(function(bio){ %>
+            <p><%= bio.text %></p>
+        <% }); %>
+             
+    </div>
+</div>
+
+<div class="container-fluid skills-section">
+    <div class="container row">
+        <div class="col-sm-4">
+            <img src="" alt="">
+            <h3>Design</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Test</li>
+                    <li class="list-group-item">Test</li>
+                    <li class="list-group-item">Test</li>
+                </ul>
+        </div>
+        <div class="col-sm-4">
+            <img src="" alt="">
+            <h3>Front-end</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Test</li>
+                    <li class="list-group-item">Test</li>
+                    <li class="list-group-item">Test</li>
+                </ul>
+        </div>
+        <div class="col-sm-4">
+            <img src="" alt="">
+            <h3>Back-end</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Test</li>
+                    <li class="list-group-item">Test</li>
+                    <li class="list-group-item">Test</li>
+                </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid portfolio-section">
+    <h1>Check out my latest work.</h1>
+    <div class="container">
+        <div class="portfolio-feature">
+            Portfolio 
+        </div>
+        <div class="portfolio-feature">
+            Portfolio 
+        </div>
+        <div class="portfolio-feature">
+            Portfolio 
+        </div>
+        <div class="portfolio-feature">
+            Portfolio 
+        </div>
+        <div class="portfolio-feature">
+            Portfolio 
+        </div>
+        <div class="portfolio-feature">
+            Portfolio 
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid testimonial-section">
+    <h1>Client feedback</h1>
+    <div class="container">
+        <div class="testimonial-image-div">
+            <!-- <img class="testimonial-image" src="images/jpeg/profile.jpg" alt="Testimonial Image"> -->
+        </div>
+        <h3 class="testimonial-name">Somebody, Somewhere</h3>
+        <div class="card-body">
+            <blockquote class="blockquote">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <p class="blockquote-footer">Bi Nguyen</p>
+            </blockquote>
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid cta-section">
+    <div class="container row">
+        <div class="col-sm-6 cta-text">
+            <h3>Have a project in mind?</h3>
+        </div>
+        <div class="col-sm-6">
+            <button class="btn btn-lg btn-info cta-btn">Contact</button>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid blog-section">
+    <h1>Blog</h1>
+    <h3>Blog description</h3>
+    <div class="container">
+        <div class="blog-feature">
+            Feature blog post
+        </div>
+        <div class="blog-feature">
+            Feature blog post
+        </div>
+        <div class="blog-feature">
+            Feature blog post
+        </div>
+    </div>
+    <div class="conatiner row">
+        <div class="col-sm-8">
+            <form action="POST" class="form-group">
+                <input class="form-control" type="text" placeholder=""></input>
+                <button class="btn btn-md btn-info" type="submit">Subscribe</button>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-md btn-info">Read More Posts</button>
+        </div>
+
+    </div>
+</div>
+
+<%- include("partials/footer"); %>
