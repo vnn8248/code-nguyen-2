@@ -9,13 +9,13 @@
     "timestamps": true
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Content": {
+    "content": {
       "type": "richtext"
     },
-    "Date": {
+    "date": {
       "type": "date"
     },
     "categories": {
@@ -23,8 +23,28 @@
       "via": "blog_posts",
       "dominant": true
     },
-    "Media": {
-      "collection": "file",
+    "author": {
+      "model": "author",
+      "via": "blog_posts"
+    },
+    "tag": {
+      "via": "blog_post",
+      "model": "tags"
+    },
+    "slug": {
+      "type": "string",
+      "private": false,
+      "required": false,
+      "unique": false
+    },
+    "subtitle": {
+      "type": "string",
+      "private": false,
+      "required": false,
+      "unique": false
+    },
+    "cover": {
+      "model": "file",
       "via": "related",
       "allowedTypes": [
         "images",
@@ -33,14 +53,6 @@
       ],
       "plugin": "upload",
       "required": false
-    },
-    "author": {
-      "via": "blog_posts",
-      "model": "author"
-    },
-    "tag": {
-      "via": "blog_post",
-      "model": "tags"
     }
   }
 }

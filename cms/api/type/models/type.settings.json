@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "types",
+  "info": {
+    "name": "Type"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "portfolios": {
+      "via": "types",
+      "collection": "portfolio",
+      "dominant": true
+    }
+  }
+}

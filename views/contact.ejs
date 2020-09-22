@@ -1,0 +1,72 @@
+<%- include("partials/header"); %>
+<%- include("partials/navbar"); %>
+
+<div class="jumbotron contact-hero">
+    <h1>
+        Hi, how can I help you?
+    </h1>
+</div>
+
+<div>
+    <form id="contact-form" class="form" action="/" method="post">
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="businessName"></label>
+            <input id="businessName" class="form-control" type="text" name="businessName" value="" placeholder="Business Name *" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="firstAndLastName"></label>
+            <input id="firstAndLastName" class="form-control" type="text" name="name" value="" placeholder="First and Last Name *" required>
+          </div>
+        </div>
+    
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="email"></label>
+            <input id="email" class="form-control" type="email" name="email" value="" placeholder="Email *" required>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="phoneNumber"></label>
+            <input id="phoneNumber" class="form-control" type="tel" name="phoneNumber" value="" placeholder="Phone Number *" required>
+          </div>
+        </div>
+    
+    
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="budget"></label>
+            <select id="budget" class="form-control" name="budget">
+              <option value="" disabled selected>Your Budget</option>
+              <option value="$500 - $1000">$500 - $1000</option>
+              <option value="$1000 - $2000">$1000 - $2000</option>
+              <option value="$2000 - $3000">$2000 - $3000</option>
+              <option value="$3000 - $4000">$3000 - $4000</option>
+              <option value="$4000 - $5000">$4000 - $5000</option>
+              <option value="$5000 +">$5000 +</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="deadline"></label>
+            <select id="deadline" class="form-control" name="deadline">
+              <option value="" disabled selected>Your Desired Deadline</option>
+              <option value="Within 2 weeks">Within 2 weeks</option>
+              <option value="Within 2 - 4 weeks">Within 2 - 4 weeks</option>
+              <option value="Within 1 - 2 Months">Within 1 - 2 Months</option>
+              <option value="No deadline">No deadline. Sometime within the near future.</option>
+            </select>
+          </div>
+        </div>
+    
+        <div class="form-group">
+          <label for="details"></label>
+          <textarea id="details" class="form-control" name="details" rows="5" placeholder="Tell Me More About Your Idea. *" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="source"></label>
+          <textarea id="source" class="form-control" name="source" rows="2" placeholder="How Did You Hear About Code Nguyen?" required></textarea>
+        </div>
+        <button class="btn btn-info form-control rfp-submit-btn" type="submit" name="submit">Submit</button>
+      </form>
+</div>
+
+<%- include("partials/footer"); %>

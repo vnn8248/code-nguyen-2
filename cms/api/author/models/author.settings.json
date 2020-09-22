@@ -9,12 +9,12 @@
     "timestamps": true
   },
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string"
     },
     "blog_posts": {
-      "collection": "blog-posts",
-      "via": "author"
+      "via": "author",
+      "collection": "blog-posts"
     }
   }
 }

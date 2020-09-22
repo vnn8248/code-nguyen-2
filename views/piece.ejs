@@ -1,0 +1,27 @@
+<%- include("partials/header"); %>
+<%- include("partials/navbar"); %>
+
+<% portfolios.forEach(piece => { %>
+    <div class="container">
+        <h1><%= piece.client %></h1>
+        <h4><%= piece.industry %></h4>
+
+        <!-- <h4>Project type</h4> -->
+        <div class="container row">
+            <div class="col-6-md">
+                Download designs
+            </div>
+            <div class="col-6-md">
+                Languages used.
+                <button class="btn btn-lg btn-info">View code on Github</button>
+            </div>
+        </div>
+        <div class="container piece-description">
+            <%- piece.description %>
+        </div>
+    </div>
+<% }); %>
+
+
+
+<%- include("partials/footer"); %>

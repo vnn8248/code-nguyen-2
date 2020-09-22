@@ -1,0 +1,39 @@
+<%- include("partials/header"); %>
+<%- include("partials/navbar"); %>
+
+<% post.forEach(post => { %>
+    <div class="container post-container">    
+        <h1 class="post-title">
+            <%= post.title %>
+        </h1>
+        <h4 class="post-subtitle">
+            <%= post.subtitle %>
+        </h4>
+        <div class="post-author-div">
+            <div class="post-author-image">
+                <!-- <img src="/images/jpeg/profile.jpg" class="author-pic" alt=""> -->
+            </div>
+            <div class="post-author-meta">
+                <p><%= post.author.name %></p>
+                <p><%= post.date %></p>
+            </div>
+        </div>
+        <div class="share-btns">
+                    <!-- Twitter -->
+            <!-- <a href="https://twitter.com/share?url=https://simplesharebuttons.com&amp;text=Simple%20Share%20Buttons&amp;hashtags=simplesharebuttons" target="_blank">
+                <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+            </a> -->
+        </div>
+    
+        <img src="<%= post.cover.url %>" class="post-image" alt="">
+        
+        
+        <!-- After marked-down, use unescaped ejs tag -->
+        <div class="post-content-div">
+            <%- post.content %>  
+        </div>
+    </div>
+<% }); %>
+
+
+<%- include("partials/footer"); %>

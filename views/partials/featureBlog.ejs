@@ -1,14 +1,25 @@
+
+
 <div class="container feature-blog">
-    <img src="<%= imageUrl %>" class="feature-blog-image" alt="">
-    <h1><%= postTitle %></h1>
-    <h3><%= postContent %></h3>
-    <div class="row author-div">
-        <div class="col">
-            <img src="" class="author-pic" alt="">
+    <h1>Feature</h1>
+    <img src="<%= post.cover.url %>" class="feature-blog-image" alt=" ">
+    <a href="/blog/<%= post.slug %>" class="feature-link title-link">
+        <h1 class="feature-title">
+            <%= post.title %>
+        </h1>
+        <h4 class="feature-subtitle">
+            <%= post.subtitle %>
+        </h4>
+    </a>
+
+
+    <div class="author-div">
+        <div class="author-image-div">
+            <!-- <img src="/images/jpeg/profile.jpg" class="author-pic" alt=""> -->
         </div>
-        <div class="col">
-            <p><%= postAuthor %></p>
-            <p><%= publishedDate %></p>
+        <div class="author-name-div">
+            <p><%= post.author.name %></p>
+            <p><%= post.date %></p>
         </div>
     </div>
 </div>

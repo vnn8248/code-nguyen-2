@@ -5,6 +5,10 @@ const ejs = require("ejs");
 const currentYear = require("./lib/getYear");
 const bio = require("./lib/bio");
 const axios = require("axios");
+const marked = require("marked");
+const _ = require("lodash");
+let data = require("./lib/data");
+
 
 
 const app = express();
@@ -29,45 +33,136 @@ db.once('open', () => {
 
 
 
+
 //////////////////////////////////// ROUTES
 app.get("/", (req, res) => {
-    res.render("index", {year: currentYear, bioArray: bio});
+    let portfolios = [];
+    let blogs = [];
+
+    axios.all([
+        data("blog-posts"),
+        data("portfolios")
+    ])
+    .then(axios.spread((blogRes, portfolioRes) => {
+        blogs = blogRes.data;
+        portfolios = portfolioRes.data;
+    }))            
+    .then(() => {
+        res.render("index", {
+            year: currentYear, 
+            bioArray: bio, 
+            portfolios: portfolios,
+            blogs: blogs
+        })
+    })
+    .catch(error => {
+        console.log(error);
+    })
+});
+
+app.get("/contact", (req, res) => {
+    res.render("contact", {year: currentYear})
+});
+
+
+
+app.get("/portfolio", (req, res) => {
+    let portfolios = [];
+    
+    data("portfolios")
+        .then(response => {
+            portfolios = response.data;
+        })
+        .then(() => {
+            res.render("portfolio", {
+                year: currentYear,
+                portfolios: portfolios
+            });
+        })
+        .catch(error => {
+            console.log(error);
+        })
+});
+
+    
+
+app.get("/portfolio/:slug", (req, res) => {
+    const requestedPiece = _.kebabCase(req.params.slug);
+    let portfolios = [];
+
+    data("portfolios?slug=" + requestedPiece)
+        .then(response => {
+            portfolios = response.data;
+
+            portfolios.forEach(piece => {
+                piece.description = marked(piece.description);
+            })
+        })
+        .then(() => {
+            res.render("piece", {
+                year: currentYear,
+                portfolios: portfolios
+            });
+        })
+        .catch(error => {
+            console.log(error);
+        })
 });
 
 
 app.get("/blog", function(req, res) {
-    let imageUrl;
-    let postTitle;
-    let postContent;
-    let postAuthor;
-    //Date is not working
-    let publishedDate;
-    axios.get("http://localhost:1337/blog-posts")
-        .then(response => {
-            const postDataArray = response.data;
+    let allPosts = [];
+    let feature = [];
+    let otherPosts = [];
 
-            //Get Image URL for blog post
-            postDataArray.forEach(function(post){
-                postTitle = post.Title;
-                postContent = post.Content;
-                postAuthor = post.author.Name;
-                publishedDate = post.date;
-                post.Media.forEach(function(image){
-                    imageUrl = image.url;
-                });   
+    data("blog-posts")
+        .then(response => {
+            allPosts = response.data;
+              
+            allPosts.forEach(function(post){
+                // Convert Strapi content markup to html
+                post.content = marked(post.content);   
             });
+
+            feature = allPosts.filter(post => post.tag);
+            otherPosts = allPosts.filter(post => !post.tag);
         })
-        .then(function(){
+        .then(() => {
             res.render("blog", {
                 year: currentYear, 
-                imageUrl: imageUrl,
-                postTitle: postTitle,
-                postContent: postContent,
-                postAuthor: postAuthor,
-                publishedDate: publishedDate
+                feature: feature,
+                otherPosts: otherPosts
             });
         })
-    
+        .catch(error => {
+            console.log(error);
+        }) 
+});
+
+
+
+app.get("/blog/:slug", (req, res) => {
+    const requestedPost = _.kebabCase(req.params.slug);
+    let post = [];
+
+    data("blog-posts?slug=" + requestedPost)
+        .then(response => {
+            post = response.data;
+                           
+            post.forEach(function(post){
+                // Convert Strapi content markdown to html
+                post.content = marked(post.content);       
+            });
+        })
+        .then(() => {
+            res.render("post", {
+                year: currentYear,
+                post: post
+            });
+        })
+        .catch(error => {
+            console.log(error);
+        })
 });
 
 

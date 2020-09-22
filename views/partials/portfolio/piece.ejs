@@ -1,0 +1,14 @@
+<!-- "partials/portfolio/piece.ejs" -->
+
+
+<% portfolios.forEach(piece => { %>
+    <div class="portfolio-div-h">
+        <a href="/portfolio/<%= piece.slug %>">
+            <img src="<%= piece.cover.url %>" alt="" class="portfolio-image-h">
+        </a>
+    </div>
+<% }); %>
+
+
+
+

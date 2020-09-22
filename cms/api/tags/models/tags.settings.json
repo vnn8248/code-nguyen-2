@@ -9,8 +9,10 @@
     "timestamps": true
   },
   "attributes": {
-    "Tag": {
-      "type": "string"
+    "tag": {
+      "type": "string",
+      "private": false,
+      "required": false
     },
     "blog_post": {
       "model": "blog-posts",
