@@ -4,28 +4,30 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
-const currentYear = require("./lib/getYear");
-const bio = require("./lib/bio");
 const axios = require("axios");
 const marked = require("marked");
 const _ = require("lodash");
-let data = require("./lib/data");
-const nodemailerConfig = require("./lib/nodemailer");
 const nodemailer = require("nodemailer");
 
-
+// Local Library
+const nodemailerConfig = require("./lib/nodemailer");
+let data = require("./lib/data");
+const currentYear = require("./lib/getYear");
+const bio = require("./lib/bio");
 
 const app = express();
-//////////////////////////////////// EJS LOOKS IN VIEWS DIR
+
+// EJS LOOKS IN VIEWS DIR
 app.set("view engine", "ejs");
-//////////////////////////////////// SERVE STATIC FILES FROM PUBLIC DIR
+
+// SERVE STATIC FILES FROM PUBLIC DIR
 app.use(express.static("public"));
 app.use(express.static("cms/public"));
 
-//////////////////////////////////// BODY PARSER MIDDLEWARE
+// BODY PARSER MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//////////////////////////////////// SESSION MIDDLEWARE
+// SESSION MIDDLEWARE
 app.use(session({ 
     secret: 'keyboard cat', 
     cookie: { maxAge: 60000 }, 
@@ -34,7 +36,7 @@ app.use(session({
 }));
 
 
-//////////////////////////////////// CONNECT TO MONGODB
+//CONNECT TO MONGODB
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true, 
     useUnifiedTopology: true
@@ -49,7 +51,7 @@ db.once('open', () => {
 
 
 
-//////////////////////////////////// ROUTES
+// ROUTES
 app.get("/", (req, res) => {
     let portfolios = [];
     let blogs = [];
