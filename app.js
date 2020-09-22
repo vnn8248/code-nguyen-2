@@ -203,6 +203,10 @@ app.get("/blog/:slug", (req, res) => {
         })
 });
 
+app.post("/subscribe", (req, res) => {
+
+});
+
 app.post("/contact", (req, res) => {
     const output = nodemailerConfig.output(req);
     const mailOptions = nodemailerConfig.mailOptions(output)

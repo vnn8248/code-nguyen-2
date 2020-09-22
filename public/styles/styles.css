@@ -7,6 +7,7 @@ body {
     overflow-x: hidden;
     padding-top: 68px;
     background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -17,10 +18,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn {
     background-color: #65c9ff;
-}
-
-.stuck {
-    color: red;
 }
 
 .navbar-brand {
@@ -48,9 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero {
-    background-color: #fff;
-    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    background-color: #fff;   
     padding: 3rem 1rem;
     margin-bottom: 0; 
 }
@@ -104,7 +99,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 3rem 1rem;
 }
 
-.portfolio-section h1, .blog-section h1 {
+.portfolio-section h1, .testimonial-section h1, .testimonial-name, .blog-section h1 {
     margin-bottom: 40px;
     text-align: center;
 }
@@ -129,17 +124,8 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 10px;
 }
 
-.portfolio-feature h3, .blog-feature h3 {
-    color: #fff;
-    position: absolute;
-    text-align: center;
-    padding-top: 100px;
-    width: 100%;
-}
 
-.testimonial-section h1, .testimonial-name {
-    text-align: center;
-}
+
 
 .testimonial-image-div {
     background-image: url("../images/jpeg/profile.jpg");
@@ -196,11 +182,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer {
     color: #fff;
-    padding: 3rem 3rem 0;
 }
 
 .footer-top {
+    /* border-bottom: 1px solid #fff; */
+    padding: 3rem 1rem 0;
+}
+
+.footer-hr {
     border-bottom: 1px solid #fff;
+}
+
+.footer-bottom {
+    padding: 0;
+}
+
+.footer-nav {
+    margin-bottom: 2rem;
 }
 
 .input-group * {
@@ -241,21 +239,31 @@ h1, h2, h3, h4, h5, h6 {
     margin: auto;
 }
 
-.feature-title, .latest-title {
+.feature-title, .other-title {
     color: #3c4f5c;
     font-size: 24px;
     font-weight: bold;
 }
 
-.feature-subtitle, .latest-subtitle {
-    color: #3c4f5c;
+.other-title {
     font-size: 18px;
+}
+
+.feature-subtitle, .other-subtitle {
+    color: #3c4f5c;
+    font-size: 14px;
+    letter-spacing: 0px;
 }
 
 .feature-link {
     display: block;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.blog-hr {
+    border-bottom: 1px solid #3c4f5c;
+    width: 90%;
 }
 
 .author-div, .post-author-div {
@@ -276,22 +284,16 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: 20px;
 }
 
-.author-name-div p, .latest-post-div p, .post-author-meta p {
+.author-name-div p, .other-post-div p, .post-author-meta p {
     margin-bottom: 0;
     font-size: 14px;
 }
 
-.blog {
-    position: relative;
-}
-
-.latest-posts-section {
+.other-posts-section {
     margin: 3rem auto;
-    /* position: absolute;
-    bottom: 0; */
 }
 
-.latest-post-div {
+.other-post-div {
     display: flex;
     justify-content: space-between;
     margin-bottom: 50px;
@@ -299,8 +301,14 @@ h1, h2, h3, h4, h5, h6 {
     padding-right: 15px;
 }
 
-.latest-post-image {
-    width: 100px;
+.other-post-div * {
+    padding: 0;
+}
+
+.other-post-image {
+    width: 100%;
+    display: inline-block;
+    margin: auto;
 }
 
 /* Post page */

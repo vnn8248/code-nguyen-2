@@ -1,9 +1,11 @@
 <!-- "partials/blog/post" -->
 
 <% blogs.forEach(post => { %>
-    <a href="/blog/<%= post.slug %>">
-        <div class="blog-div-h post-1">
+    
+    <div class="blog-div-h post-1">
+        <a href="/blog/<%= post.slug %>"></a>
             <img src="<%= post.cover.url %>" alt="" class="blog-image-h">
-        </div>
-    </a>
+        </a>
+    </div>
+
 <% }); %>

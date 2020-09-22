@@ -25,20 +25,29 @@
       </div>
 <% }); %>
 
+<hr class="blog-hr">
+
 <% otherPosts.forEach(post => {  %>
-      <div class="container latest-posts-section">
-            <div class="latest-post-div row">
-                  <div>
+      <div class="container other-posts-section">
+            <div class="other-post-div row">
+                  <div class="col-8">
                         <a href="/blog/<%= post.slug %>">
-                              <h1 class="latest-title"><%= post.title %></h1> 
-                              <h4 class="latest-subtitle"><%= post.subtitle %></h4>
+                              <h1 class="other-title"><%= post.title %></h1> 
+                              <h4 class="other-subtitle"><%= post.subtitle %></h4>
                         </a>
-                        <p class=""><%= post.author.name %></p>
-                        <p><%= post.date %></p>
+                        <div class="author-div">
+                              <div class="author-image-div">
+                                    <!-- <img src="/images/jpeg/profile.jpg" class="author-pic" alt=""> -->
+                              </div>
+                              <div class="author-name-div">
+                                    <p class="other-meta"><%= post.author.name %></p>
+                                    <p class="other-meta"><%= post.date %></p>
+                              </div>
+                        </div>
                   </div>
-                  <div>
+                  <div class="col-4">
                         <a href="">
-                              <img src="<%= post.cover.url %>" alt="" class="latest-post-image">
+                              <img src="<%= post.cover.url %>" alt="" class="other-post-image">
                         </a>
                   </div>
             </div>  
