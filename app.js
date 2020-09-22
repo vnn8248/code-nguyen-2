@@ -1,5 +1,7 @@
 require('dotenv').config();
 const express = require("express");
+const bodyParser = require("body-parser");
+const session = require("express-session");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
 const currentYear = require("./lib/getYear");
@@ -8,6 +10,8 @@ const axios = require("axios");
 const marked = require("marked");
 const _ = require("lodash");
 let data = require("./lib/data");
+const nodemailerConfig = require("./lib/nodemailer");
+const nodemailer = require("nodemailer");
 
 
 
@@ -17,6 +21,17 @@ app.set("view engine", "ejs");
 //////////////////////////////////// SERVE STATIC FILES FROM PUBLIC DIR
 app.use(express.static("public"));
 app.use(express.static("cms/public"));
+
+//////////////////////////////////// BODY PARSER MIDDLEWARE
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//////////////////////////////////// SESSION MIDDLEWARE
+app.use(session({ 
+    secret: 'keyboard cat', 
+    cookie: { maxAge: 60000 }, 
+    saveUninitialized: true,
+    resave: true
+}));
 
 
 //////////////////////////////////// CONNECT TO MONGODB
@@ -61,7 +76,28 @@ app.get("/", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-    res.render("contact", {year: currentYear})
+    const emptyMessage = "";
+    const submitResult = req.session.valid;
+
+    if (submitResult === true) {
+        const successMessage = "Success! Thanks for sending."
+        res.render("contact", {
+            year: currentYear,
+            resultMessage: successMessage
+        })
+    } else if (submitResult === false) {
+        const errorMessage = "There was an error";
+        res.render("contact", {
+            year: currentYear,
+            resultMessage: errorMessage
+        })
+    } else {
+        res.render("contact", {
+            year: currentYear,
+            resultMessage: emptyMessage
+        })
+    }
+    
 });
 
 
@@ -163,6 +199,27 @@ app.get("/blog/:slug", (req, res) => {
         .catch(error => {
             console.log(error);
         })
+});
+
+app.post("/contact", (req, res) => {
+    const output = nodemailerConfig.output(req);
+    const mailOptions = nodemailerConfig.mailOptions(output)
+    const transporter = nodemailerConfig.transporter();
+ 
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        // Check for errors
+        if (error) {
+            console.log(error);
+            req.session.valid = false;
+            res.redirect("/contact");
+        } else if (!error) {
+            console.log("Message sent: %s", info.messageId);
+            // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+            req.session.valid = true;
+            res.redirect("/contact");
+        }
+    });
 });
 
 
