@@ -263,7 +263,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .blog-hr {
     border-bottom: 1px solid #3c4f5c;
-    width: 90%;
+    width: 100%;
 }
 
 .author-div, .post-author-div {
@@ -296,12 +296,13 @@ h1, h2, h3, h4, h5, h6 {
 .other-post-div {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
-    padding-left: 15px;
-    padding-right: 15px;
+    margin: 0 auto 50px;
+    padding: 15px;
+    border: 3px solid #e9ecef;
+    border-radius: 2%;
 }
 
-.other-post-div * {
+.other-post-image-div {
     padding: 0;
 }
 
@@ -333,4 +334,42 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+/* portfolio piece */
+
+.piece-container {
+    margin: 3rem auto;
+}
+
+.client-name, .client-industry, .piece-details-row h2 {
+    text-align: center;
+}
+
+.piece-details-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem auto;
+}
+
+.piece-details-row div {
+    margin: 1rem auto;
+    border: 3px solid #e9ecef;
+    border-radius: 10%;
+    width: 350px;
+    padding: 20px 20px 0;
+}
+
+.piece-details-row h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.piece-btn, .portfolio-btn {
+    display: block;
+    margin: 20px auto;
+}
+
+.portfolio-btn {
+    margin-top: 3rem;
 }

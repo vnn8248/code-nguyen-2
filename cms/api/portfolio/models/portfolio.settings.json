@@ -46,6 +46,10 @@
     },
     "slug": {
       "type": "string"
+    },
+    "skills": {
+      "via": "portfolios",
+      "collection": "skill"
     }
   }
 }

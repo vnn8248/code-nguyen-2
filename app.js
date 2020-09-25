@@ -14,6 +14,7 @@ const nodemailerConfig = require("./lib/nodemailer");
 let data = require("./lib/data");
 const currentYear = require("./lib/getYear");
 const bio = require("./lib/bio");
+const skillsLogos = require("./lib/skills");
 
 const app = express();
 
@@ -131,15 +132,18 @@ app.get("/portfolio/:slug", (req, res) => {
     data("portfolios?slug=" + requestedPiece)
         .then(response => {
             portfolios = response.data;
-
+            
             portfolios.forEach(piece => {
                 piece.description = marked(piece.description);
-            })
+                console.log(piece.designFiles);
+            });
+            
         })
         .then(() => {
             res.render("piece", {
                 year: currentYear,
-                portfolios: portfolios
+                portfolios: portfolios,
+                skillsLogos: skillsLogos
             });
         })
         .catch(error => {

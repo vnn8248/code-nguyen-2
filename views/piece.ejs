@@ -2,23 +2,48 @@
 <%- include("partials/navbar"); %>
 
 <% portfolios.forEach(piece => { %>
-    <div class="container">
-        <h1><%= piece.client %></h1>
-        <h4><%= piece.industry %></h4>
+    <div class="piece-container container">
+        <div class="container">
+            <h1 class="client-name"><%= piece.client %></h1>
+            <h2 class="client-industry"><%= piece.industry %></h2>
+        </div>
+
 
         <!-- <h4>Project type</h4> -->
-        <div class="container row">
-            <div class="col-6-md">
-                Download designs
-            </div>
-            <div class="col-6-md">
-                Languages used.
-                <button class="btn btn-lg btn-info">View code on Github</button>
+        <div class="piece-details-container container">
+            <div class="piece-details-row container row">
+                <div class="col-6-md">
+                    <h2>Download designs</h2>
+                </div>
+                <div class="col-6-md">
+                    <h2>Languages used.</h2>
+                    <ul class="list-group">
+                   <% piece.skills.forEach(skill => { %>
+                        <% skill.name; %>
+                        <% skillsLogos.forEach(logo => { %>
+                            <% if (logo.name === skill.name) { %>
+                                <li class="list-group-item">
+                                    <img src="<%= logo.logo %>" alt="<%= logo.name %>" class="logo">
+                                    <%= skill.name %>
+                                </li>
+                            <% } %>
+                        <% }); %>
+                    <%  }); %>
+                    </ul>
+                    <a href="https://github.com/vnn8248/code-nguyen-2" target="_blank">
+                        <button class="btn btn-lg btn-info piece-btn">View code on Github</button>
+                    </a>
+                    
+                </div>
             </div>
         </div>
+
         <div class="container piece-description">
             <%- piece.description %>
         </div>
+        <a href="/portfolio">
+            <button class="btn btn-lg btn-info portfolio-btn">Back to Portfolio</button>
+        </a>
     </div>
 <% }); %>
 

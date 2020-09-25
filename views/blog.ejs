@@ -25,11 +25,13 @@
       </div>
 <% }); %>
 
-<hr class="blog-hr">
+<div class="container">
+      <hr class="blog-hr">
+</div>
 
+<div class="container other-posts-section">
 <% otherPosts.forEach(post => {  %>
-      <div class="container other-posts-section">
-            <div class="other-post-div row">
+            <div class="other-post-div container row">
                   <div class="col-8">
                         <a href="/blog/<%= post.slug %>">
                               <h1 class="other-title"><%= post.title %></h1> 
@@ -45,14 +47,14 @@
                               </div>
                         </div>
                   </div>
-                  <div class="col-4">
-                        <a href="">
+                  <div class="col-4 other-post-image-div">
+                        <a href="/blog/<%= post.title %>">
                               <img src="<%= post.cover.url %>" alt="" class="other-post-image">
                         </a>
                   </div>
             </div>  
-      </div>    
 <% }); %>
+</div>    
 
     
            
