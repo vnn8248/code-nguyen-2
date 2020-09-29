@@ -8,6 +8,7 @@ const axios = require("axios");
 const marked = require("marked");
 const _ = require("lodash");
 const nodemailer = require("nodemailer");
+const mailchimp = require("@mailchimp/mailchimp_marketing");
 
 // Local Library
 const nodemailerConfig = require("./lib/nodemailer");
@@ -27,6 +28,7 @@ app.use(express.static("cms/public"));
 
 // BODY PARSER MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // SESSION MIDDLEWARE
 app.use(session({ 
@@ -208,7 +210,32 @@ app.get("/blog/:slug", (req, res) => {
 });
 
 app.post("/subscribe", (req, res) => {
+    console.log(req.body);
+    const email = req.body.email;
+        
+    const subscribingUser = {
+        email: email
+    };
 
+    mailchimp.setConfig({
+        apiKey: "2cc532e572cf337dadb6655c89ca04f0-us20",
+        server: "us20"
+    });
+
+    const listId = "36e9290ce7";
+
+    async function run() {
+        const response = await mailchimp.lists.addListMember(listId, {
+          email_address: subscribingUser.email,
+          status: "subscribed"
+        });
+        if (response.id) {
+            console.log(`Successfully added contact as an audience member. The contact's id is ${response.id}.`);
+        } else if (!response.id) {
+            console.log("error");
+        }
+    }
+    run();
 });
 
 app.post("/contact", (req, res) => {
