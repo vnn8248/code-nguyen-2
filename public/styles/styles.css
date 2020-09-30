@@ -396,6 +396,11 @@ Individual Post page
     margin-bottom: 50px;
 }
 
+.back-btn {
+    display: block;
+    margin: 3rem auto;
+}
+
 /*******************************************************
 Individual Post page End
 ********************************************************/
