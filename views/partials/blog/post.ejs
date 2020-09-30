@@ -1,10 +1,12 @@
 <!-- "partials/blog/post" -->
 
-<% blogs.forEach(post => { %>
+<% blogs.slice(0,3).forEach(post => { %>
     
-    <div class="blog-div-h post-1">
-        <a href="/blog/<%= post.slug %>"></a>
+    <div class="blog-div-h">
+        <a href="/blog/<%= post.slug %>">
             <img src="<%= post.cover.url %>" alt="" class="blog-image-h">
+            <h3 class="blog-title-h"><%= post.title %></h3>
+            <h4 class="blog-subtitle-h"><%= post.subtitle %></h4>
         </a>
     </div>
 

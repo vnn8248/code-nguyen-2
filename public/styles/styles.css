@@ -10,7 +10,7 @@ body {
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, .nav-link {
     font-family: 'Noto Sans', sans-serif;
     letter-spacing: -1px;
     line-height: 1.5;
@@ -43,6 +43,15 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link {
     color: black !important;
 }
+
+/*********************************************************
+Mobile first styles 
+*********************************************************/
+
+/*********************************************************
+Home page 
+*********************************************************/
+
 
 .hero {
     background-color: #fff;   
@@ -95,11 +104,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.portfolio-section, .testimonial-section, .blog-section {
+.portfolio-section, .testimonial-section, .blog-section, .contact-section, .blog {
     padding: 3rem 1rem;
 }
 
-.portfolio-section h1, .testimonial-section h1, .testimonial-name, .blog-section h1 {
+.portfolio-section h1, .testimonial-section h1, .testimonial-name, .contact-form-div h1 {
     margin-bottom: 40px;
     text-align: center;
 }
@@ -111,9 +120,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .portfolio-div-h, .blog-div-h {
-    margin: 10px;   
+    margin: 20px auto;
     position: relative;
     width: 350px;
+    text-align: center;
+}
+
+.portfolio-name {
+    color: black;
 }
 
 .portfolio-image-h, .blog-image-h {
@@ -165,14 +179,31 @@ h1, h2, h3, h4, h5, h6 {
 .blog-section {
     color: #fff;
     background-image: radial-gradient(circle, #5ffbf1, #46eefa, #41dfff, #52cffe, #69bff8, #6cb0e7, #6da1d5, #6c92c3, #5c81a8, #4f708e, #456074, #3c4f5c);
-}
-
-.blog-section h1, .blog-section h3 {
     text-align: center;
 }
 
+
 .blog-section .container {
     margin: auto;
+}
+
+.blog-title-h {
+    font-size: 1rem;
+    word-spacing: 0.1875rem;
+}
+
+.blog-image-h {
+    margin-bottom: 1rem;
+}
+
+.blog-title-h {
+    font-size: 24px;
+    color: #fff;
+}
+
+.blog-subtitle-h {
+    font-size: 16px;
+    color: #fff;
 }
 
 .read-more-posts-btn {
@@ -180,12 +211,23 @@ h1, h2, h3, h4, h5, h6 {
     margin: 1rem auto;
 }
 
+/*******************************************************
+ Footer
+ *******************************************************/
+
 .footer {
     color: #fff;
 }
 
+.footer h3 {
+    font-size: 24px;
+}
+
+.footer p {
+    font-size: 14px;
+}
+
 .footer-top {
-    /* border-bottom: 1px solid #fff; */
     padding: 3rem 1rem 0;
 }
 
@@ -199,6 +241,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-nav {
     margin-bottom: 2rem;
+}
+
+.footer-link {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-link:hover {
+    color:  #65c9ff;
 }
 
 .input-group * {
@@ -225,9 +276,14 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0;
 }
 
-/* Blog page */
+/*******************************************************
+ Footer End
+ *******************************************************/
 
 
+/*******************************************************
+Blog page 
+*******************************************************/
 
 .feature-blog {
     margin: 3rem auto;
@@ -297,12 +353,6 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-between;
     margin: 0 auto 50px;
-    padding: 15px;
-    border: 3px solid #e9ecef;
-    border-radius: 2%;
-}
-
-.other-post-image-div {
     padding: 0;
 }
 
@@ -312,7 +362,17 @@ h1, h2, h3, h4, h5, h6 {
     margin: auto;
 }
 
-/* Post page */
+.add-this {
+    margin-top: 0.5rem;
+}
+
+/*******************************************************
+Blog Page End
+*******************************************************/
+
+/*******************************************************
+Individual Post page 
+********************************************************/
 
 .post-container {
     max-width: 680px;
@@ -336,7 +396,13 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 50px;
 }
 
-/* portfolio piece */
+/*******************************************************
+Individual Post page End
+********************************************************/
+
+/********************************************************
+Individual Portfolio piece 
+********************************************************/
 
 .piece-container {
     margin: 3rem auto;
@@ -372,4 +438,162 @@ h1, h2, h3, h4, h5, h6 {
 
 .portfolio-btn {
     margin-top: 3rem;
+}
+
+/********************************************************
+Individual Portfolio piece 
+********************************************************/
+
+/*********************************************************
+Contact page 
+*********************************************************/
+
+.contact-form-div {
+    margin: 3rem auto;
+    border-radius: .3rem;
+}
+
+.form {
+    padding: 1rem 2rem;
+}
+
+/*********************************************************
+Contact page End
+*********************************************************/
+
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+    /*********************************************************
+    Home page 
+    *********************************************************/
+    .skills-container h3 {
+        font-size: 20px;
+    }
+
+    .skills-item {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        font-size: 14px;
+    }
+    
+    .logo {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .blog-title-h {
+        font-size: 28px;
+    }
+    
+    .blog-subtitle-h {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+    /*********************************************************
+    Home page 
+    *********************************************************/
+
+    .nav-flex {
+        display: flex;
+        align-items: center;
+    }
+
+    .main-nav {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .nav-link {
+        font-size: 15px;
+        letter-spacing: 0;
+    }
+     
+    .bio-section .container {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    .skills-item {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .logo {
+        display: inline-block;
+        margin-right: 0.5rem;
+    }
+
+    /* testimonial quote */
+    .card-body {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+
+    .cta-section .container {
+        display: flex;
+        align-items: center;
+    }
+
+    /*********************************************************
+    Home page End
+    *********************************************************/
+
+    /*********************************************************
+    Blog page 
+    *********************************************************/
+    .feature-blog-image {
+        width: 80%;
+        margin: initial;
+    }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+    /*********************************************************
+    Home page 
+    *********************************************************/
+
+
+    .bio-section .container {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+
+    .skills-container h3 {
+        font-size: 24px;
+    }
+
+    .skills-item {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        font-size: 16px;
+    }
+
+    .cta-section {
+        max-width: 800px;
+    }
+
+    /*********************************************************
+    Home page End
+    *********************************************************/
+
+    /*********************************************************
+    Blog page 
+    *********************************************************/
+    .feature-blog-image {
+        width: 75%;
+        margin: initial;
+    }
+
+    .other-title {
+        font-size: 24px;
+    }
 }

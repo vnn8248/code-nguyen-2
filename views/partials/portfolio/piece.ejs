@@ -1,10 +1,11 @@
 <!-- "partials/portfolio/piece.ejs" -->
 
 
-<% portfolios.forEach(piece => { %>
+<% portfolios.slice(0,6).forEach(piece => { %>
     <div class="portfolio-div-h">
         <a href="/portfolio/<%= piece.slug %>">
             <img src="<%= piece.cover.url %>" alt="" class="portfolio-image-h">
+            <h3 class="portfolio-name"><%= piece.client %></h3>
         </a>
     </div>
 <% }); %>

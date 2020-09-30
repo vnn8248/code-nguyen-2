@@ -1,15 +1,17 @@
 <%- include("partials/header"); %>
 <%- include("partials/navbar"); %>
 
-<div class="jumbotron contact-hero">
-    <h1>
-        Hi, how can I help you?
-    </h1>
+<div class="container contact-section">
+  <div class="jumbotron contact-hero">
+    How can I help?
+  </div>
 </div>
 
-<div>
-  <h1 class="form-result"><%= resultMessage %></h1>
-  <form id="contact-form" class="form" action="/contact" method="post">
+
+<div class="container contact-form-div">
+  <h1>Contact Form</h1>
+  <p class="form-result"><%= resultMessage %></p>
+  <form id="contact-form" class="form bg-light" action="/contact" method="post">
       <div class="row">
         <div class="form-group col-md-6">
           <label for="businessName"></label>
