@@ -8,10 +8,14 @@ const axios = require("axios");
 const marked = require("marked");
 const _ = require("lodash");
 const nodemailer = require("nodemailer");
+const mailchimp = require("@mailchimp/mailchimp_marketing");
 
 // Local Library
+// -- Nodemailer config
 const nodemailerConfig = require("./lib/nodemailer");
+// -- Axios config
 let data = require("./lib/data");
+// -- Copywrite year
 const currentYear = require("./lib/getYear");
 const bio = require("./lib/bio");
 const skillsLogos = require("./lib/skills");
@@ -21,12 +25,15 @@ const app = express();
 // EJS LOOKS IN VIEWS DIR
 app.set("view engine", "ejs");
 
+// BODY PARSER MIDDLEWARE
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 // SERVE STATIC FILES FROM PUBLIC DIR
 app.use(express.static("public"));
 app.use(express.static("cms/public"));
 
-// BODY PARSER MIDDLEWARE
-app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // SESSION MIDDLEWARE
 app.use(session({ 
@@ -56,6 +63,7 @@ db.once('open', () => {
 app.get("/", (req, res) => {
     let portfolios = [];
     let blogs = [];
+    
 
     axios.all([
         data("blog-posts"),
@@ -207,8 +215,34 @@ app.get("/blog/:slug", (req, res) => {
         })
 });
 
-app.post("/subscribe", (req, res) => {
+app.post("/subscribe", function(req, res) {
+    console.log("Server side.");
+    const email = req.body.email;
+        
+    const subscribingUser = {
+        email: email
+    };
 
+    mailchimp.setConfig({
+        apiKey: process.env.MAILCHIMP_APIKEY,
+        server: process.env.MAILCHIMP_SERVER
+    });
+
+    const listId = process.env.MAILCHIMP_LISTID;
+
+    async function run() {
+        const response = await mailchimp.lists.addListMember(listId, {
+          email_address: subscribingUser.email,
+          status: "subscribed"
+        });
+        if (response.id) {
+            console.log(`Successfully added contact as an audience member. The contact's id is ${response.id}.`);
+            res.send("Subscribed!");
+        } else if (!response.id) {
+            res.send("An error occurred. Contact me and I'll take a look.")
+        }
+    }
+    run();
 });
 
 app.post("/contact", (req, res) => {

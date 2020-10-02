@@ -16,6 +16,10 @@ h1, h2, h3, h4, h5, h6, .nav-link {
     line-height: 1.5;
 }
 
+.red {
+    background-color: red !important;
+}
+
 .btn {
     background-color: #65c9ff;
 }
@@ -54,7 +58,7 @@ Home page
 
 
 .hero {
-    background-color: #fff;   
+    background-color: transparent;
     padding: 3rem 1rem;
     margin-bottom: 0; 
 }

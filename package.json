@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.15",
     "axios": "^0.20.0",
     "body-parser": "^1.19.0",
     "concurrently": "^5.3.0",
@@ -21,7 +22,6 @@
     "lodash": "^4.17.20",
     "marked": "^1.1.1",
     "mongoose": "^5.10.3",
-    "nodemailer": "^6.4.11",
-    "slugify": "^1.4.5"
+    "nodemailer": "^6.4.11"
   }
 }

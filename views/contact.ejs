@@ -7,11 +7,17 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 
 <div class="container contact-form-div">
   <h1>Contact Form</h1>
   <p class="form-result"><%= resultMessage %></p>
   <form id="contact-form" class="form bg-light" action="/contact" method="post">
+=======
+<div>
+  <h1 class="form-result"><%= resultMessage %></h1>
+  <form id="contactForm" class="form" action="/contact" method="post">
+>>>>>>> ajax
       <div class="row">
         <div class="form-group col-md-6">
           <label for="businessName"></label>
@@ -68,7 +74,7 @@
         <label for="source"></label>
         <textarea id="source" class="form-control" name="source" rows="2" placeholder="How Did You Hear About Code Nguyen?" required></textarea>
       </div>
-      <button class="btn btn-info form-control rfp-submit-btn" type="submit" name="submit">Submit</button>
+      <button class="btn btn-info form-control rfp-submit-btn" type="submit" name="contact-btn">Submit</button>
     </form>
 </div>
 
