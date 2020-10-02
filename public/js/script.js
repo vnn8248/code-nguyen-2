@@ -1,20 +1,22 @@
-$(document).ready(function() {
+$(document).ready(() => {
+    $("#subscribe").submit((e) => {
+        e.preventDefault();
 
-    function logSubmit(event) {
+        var data = {};
+        data.email = $("#subscriberEmail").val();
         
-        log.text(`Form submitted. Time stamp ${event.timeStamp}`);
-
         $.ajax({
-            type: "POST",
-            url: "http://localhost:3000/subscribe",
-            data: {
-                email: "laca@gmail.com"
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+            url: '/subscribe',
+            success: (data) => {
+                $("#subscribeResult").text(data);
             },
-            success: (result) => console.log(result)
-        });
-    };
-
-    const form = $("#subscribe");
-    const log = $("#subscribeResult");
-    form.on("submit", logSubmit);
-});
+            error: (error) => {
+                $("#subscribeResult").text(error);
+            }
+          });
+    });
+  }
+);
