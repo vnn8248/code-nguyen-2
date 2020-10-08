@@ -143,7 +143,6 @@ app.get("/portfolio/:slug", (req, res) => {
             
             portfolios.forEach(piece => {
                 piece.description = marked(piece.description);
-                console.log(piece.designFiles);
             });
             
         })

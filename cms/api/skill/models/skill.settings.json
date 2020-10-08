@@ -27,8 +27,8 @@
       "required": false
     },
     "portfolios": {
-      "collection": "portfolio",
       "via": "skills",
+      "collection": "portfolio",
       "dominant": true
     }
   }

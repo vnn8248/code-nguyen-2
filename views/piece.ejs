@@ -12,11 +12,41 @@
         <!-- <h4>Project type</h4> -->
         <div class="piece-details-container container">
             <div class="piece-details-row container row">
-                <div class="col-6-md">
-                    <h2>Download designs</h2>
+                <div class="col-6-md piece-col">
+                    <h2>Design Files</h2>
+                <%  piece.designFiles.forEach(file => { %>
+                    <div class="mockup-div">
+                        <a href="<%= file.url %>" download>
+                            <img src="<%= file.url %>" alt="Download Mock-Up Files" class="mockup-image">
+                        </a>
+                    </div>                  
+                    <button class="btn btn-lg btn-info piece-btn">
+                        <a href="<%= file.url %>" download>
+                        Download Mock-Up
+                        </a>
+                    </button>
+                <%  }) %>
+                    <div>
+                        <h2>Wireframe</h2>
+                        <div>
+                        </div>                        
+                        <button class="btn btn-lg btn-info piece-btn">
+                            <a href="<%= piece.figma %>" target="_blank">
+                            View on Figma
+                            </a>
+                        </button>                          
+                    </div>
+                    <div>
+                        <h2>URL</h2>
+                        <button class="btn btn-lg btn-info piece-btn">
+                            <a href="<%= piece.url %>" target="_blank">
+                            Go to site
+                            </a>
+                        </button>
+                    </div>
                 </div>
-                <div class="col-6-md">
-                    <h2>Languages used.</h2>
+                <div class="col-6-md piece-col">
+                    <h2>Languages Used</h2>
                     <ul class="list-group">
                    <% piece.skills.forEach(skill => { %>
                         <% skill.name; %>
@@ -30,20 +60,29 @@
                         <% }); %>
                     <%  }); %>
                     </ul>
-                    <a href="https://github.com/vnn8248/code-nguyen-2" target="_blank">
-                        <button class="btn btn-lg btn-info piece-btn">View code on Github</button>
-                    </a>
+                    
+                    <button class="btn btn-lg btn-info piece-btn">
+                        <a href="<%= piece.github %>" target="_blank">
+                        View code on Github
+                        </a>
+                    </button>
+                    
                     
                 </div>
             </div>
         </div>
 
         <div class="container piece-description">
+            <h2>Description</h2>
             <%- piece.description %>
         </div>
-        <a href="/portfolio">
-            <button class="btn btn-lg btn-info portfolio-btn">Back to Portfolio</button>
-        </a>
+        
+        <button class="btn btn-lg btn-info portfolio-btn">
+            <a href="/portfolio">
+            Back to Portfolio
+            </a>
+        </button>
+      
     </div>
 <% }); %>
 

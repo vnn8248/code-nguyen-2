@@ -24,6 +24,15 @@ h1, h2, h3, h4, h5, h6, .nav-link {
     background-color: #65c9ff;
 }
 
+.btn a {
+    color: #fff;
+}
+
+
+.jumbotron {
+    text-align: center;
+}
+
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -301,8 +310,11 @@ Blog page
 
 .feature-title, .other-title {
     color: #3c4f5c;
-    font-size: 24px;
     font-weight: bold;
+}
+
+.feature-title {
+    font-size: 24px;
 }
 
 .other-title {
@@ -417,6 +429,24 @@ Individual Portfolio piece
     margin: 3rem auto;
 }
 
+.client-industry {
+    font-size: 18px;
+    color: #3c4f5c;
+}
+
+.mockup-div {
+    display: block; 
+    width: 100%; 
+    height: 100px; 
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+.mockup-image {
+    display: block; 
+    width: 100%;
+}
+
 .client-name, .client-industry, .piece-details-row h2 {
     text-align: center;
 }
@@ -427,7 +457,7 @@ Individual Portfolio piece
     margin: 3rem auto;
 }
 
-.piece-details-row div {
+.piece-details-row .piece-col {
     margin: 1rem auto;
     border: 3px solid #e9ecef;
     border-radius: 10%;
@@ -449,8 +479,24 @@ Individual Portfolio piece
     margin-top: 3rem;
 }
 
+.piece-description {
+    background-color: #e9ecef;
+    border: 1px solid #e9ecef;
+    border-radius: 3px;
+    padding: 1rem;
+    line-height: 2;
+}
+
+.piece-description h2 {
+    text-align: center;
+}
+
+.piece-description * {
+    margin-bottom: 2rem;
+}
+
 /********************************************************
-Individual Portfolio piece 
+Individual Portfolio piece end
 ********************************************************/
 
 /*********************************************************
@@ -458,12 +504,18 @@ Contact page
 *********************************************************/
 
 .contact-form-div {
-    margin: 3rem auto;
-    border-radius: .3rem;
+    margin-bottom: 3rem;
 }
 
 .form {
     padding: 1rem 2rem;
+    background-color: #3c4f5c;
+    border-radius: .3rem;
+}
+
+.rfp-btn {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 /*********************************************************
@@ -560,6 +612,18 @@ Contact page End
         width: 80%;
         margin: initial;
     }
+
+    /*********************************************************
+    Blog page end
+    *********************************************************/
+
+    /*********************************************************
+    Portfolio piece page 
+    *********************************************************/
+
+    .piece-description {
+        padding: 1rem 3rem;
+    }
 }
 
 
@@ -602,7 +666,24 @@ Contact page End
         margin: initial;
     }
 
+    .feature-title {
+        font-size: 32px;
+    }
+
     .other-title {
         font-size: 24px;
+    }
+
+    
+    /*********************************************************
+    Blog page end
+    *********************************************************/
+    
+    /*********************************************************
+    Portfolio piece page 
+    *********************************************************/
+
+    .piece-description {
+        padding: 4rem 8rem;
     }
 }

@@ -48,8 +48,20 @@
       "type": "string"
     },
     "skills": {
-      "via": "portfolios",
-      "collection": "skill"
+      "collection": "skill",
+      "via": "portfolios"
+    },
+    "github": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "wireframe": {
+      "type": "string",
+      "private": true,
+      "required": false,
+      "unique": false
     }
   }
 }
