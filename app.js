@@ -17,7 +17,6 @@ const nodemailerConfig = require("./lib/nodemailer");
 let data = require("./lib/data");
 // -- Copywrite year
 const currentYear = require("./lib/getYear");
-const bio = require("./lib/bio");
 const skillsLogos = require("./lib/skills");
 
 const app = express();
@@ -63,20 +62,25 @@ db.once('open', () => {
 app.get("/", (req, res) => {
     let portfolios = [];
     let blogs = [];
-    
+    let bio = [];
 
     axios.all([
         data("blog-posts"),
-        data("portfolios")
+        data("portfolios"),
+        data("bio")
     ])
-    .then(axios.spread((blogRes, portfolioRes) => {
+    .then(axios.spread((blogRes, portfolioRes, bioRes) => {
         blogs = blogRes.data;
         portfolios = portfolioRes.data;
+        bio = bioRes.data;
+        
+        bio.bio = marked(bio.bio);
+        
     }))            
     .then(() => {
         res.render("index", {
             year: currentYear, 
-            bioArray: bio, 
+            bio: bio, 
             portfolios: portfolios,
             blogs: blogs
         })

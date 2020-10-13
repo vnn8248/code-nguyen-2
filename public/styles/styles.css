@@ -10,14 +10,10 @@ body {
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
-h1, h2, h3, h4, h5, h6, .nav-link {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Noto Sans', sans-serif;
     letter-spacing: -1px;
     line-height: 1.5;
-}
-
-.red {
-    background-color: red !important;
 }
 
 .btn {
@@ -72,7 +68,7 @@ Home page
     margin-bottom: 0; 
 }
 
-.hero *, .bio-section * {
+.hero * {
     margin-bottom: 50px;
     text-align: center;
 }
@@ -84,12 +80,19 @@ Home page
 .bio-section {
     color: #fff;
     background-color: #3c4f5c;
-    text-align: center;
     padding: 3rem 1rem;
+}
+
+.bio-section h1 {
+    margin-bottom: 50px;
 }
 
 .bio-section p {
     line-height: 2;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 25px;
+    word-spacing: 2px;
 }
 
 .skills-section {
@@ -104,6 +107,15 @@ Home page
     padding: 3rem 1rem;
     position: relative;
     bottom: 48px;
+}
+
+.skills-container h2 {
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
 }
 
 .skills-section h3 {
@@ -460,7 +472,7 @@ Individual Portfolio piece
 .piece-details-row .piece-col {
     margin: 1rem auto;
     border: 3px solid #e9ecef;
-    border-radius: 10%;
+    border-radius: 10px;
     width: 350px;
     padding: 20px 20px 0;
 }
@@ -482,7 +494,7 @@ Individual Portfolio piece
 .piece-description {
     background-color: #e9ecef;
     border: 1px solid #e9ecef;
-    border-radius: 3px;
+    border-radius: 10px;
     padding: 1rem;
     line-height: 2;
 }
