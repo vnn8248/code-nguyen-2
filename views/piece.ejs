@@ -14,7 +14,7 @@
             <div class="piece-details-row container row">
                 <div class="col-6-md piece-col">
                     <h2>Design Files</h2>
-                <%  piece.designFiles.forEach(file => { %>
+                <%  piece.files.forEach(file => { %>
                     <div class="mockup-div">
                         <a href="<%= file.url %>" download>
                             <img src="<%= file.url %>" alt="Download Mock-Up Files" class="mockup-image">
@@ -48,13 +48,13 @@
                 <div class="col-6-md piece-col">
                     <h2>Languages Used</h2>
                     <ul class="list-group">
-                   <% piece.skills.forEach(skill => { %>
-                        <% skill.name; %>
+                   <% piece.languages.forEach(lang => { %>
+                        <% lang.name; %>
                         <% skillsLogos.forEach(logo => { %>
-                            <% if (logo.name === skill.name) { %>
+                            <% if (logo.name === lang.name) { %>
                                 <li class="list-group-item">
                                     <img src="<%= logo.logo %>" alt="<%= logo.name %>" class="logo">
-                                    <%= skill.name %>
+                                    <%= lang.name %>
                                 </li>
                             <% } %>
                         <% }); %>

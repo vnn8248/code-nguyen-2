@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require('path');
 const session = require("express-session");
 const mongoose = require("mongoose");
 const ejs = require("ejs");
@@ -28,10 +29,10 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// SERVE STATIC FILES FROM PUBLIC DIR
-app.use(express.static("public"));
-app.use(express.static("cms/public"));
 
+app.use(express.static("public"));
+// SERVE STATIC FILES FROM STRAPI DIR
+app.use(express.static(path.join("../code-nguyen-cms/cms", 'public')));
 
 
 // SESSION MIDDLEWARE
@@ -62,25 +63,18 @@ db.once('open', () => {
 app.get("/", (req, res) => {
     let portfolios = [];
     let blogs = [];
-    let bio = [];
 
     axios.all([
-        data("blog-posts"),
-        data("portfolios"),
-        data("bio")
+        data("blogs"),
+        data("portfolios")
     ])
-    .then(axios.spread((blogRes, portfolioRes, bioRes) => {
+    .then(axios.spread((blogRes, portfolioRes) => {
         blogs = blogRes.data;
-        portfolios = portfolioRes.data;
-        bio = bioRes.data;
-        
-        bio.bio = marked(bio.bio);
-        
+        portfolios = portfolioRes.data;      
     }))            
     .then(() => {
         res.render("index", {
             year: currentYear, 
-            bio: bio, 
             portfolios: portfolios,
             blogs: blogs
         })
@@ -168,7 +162,7 @@ app.get("/blog", function(req, res) {
     let feature = [];
     let otherPosts = [];
 
-    data("blog-posts")
+    data("blogs")
         .then(response => {
             allPosts = response.data;
               
@@ -198,7 +192,7 @@ app.get("/blog/:slug", (req, res) => {
     const requestedPost = _.kebabCase(req.params.slug);
     let post = [];
 
-    data("blog-posts?slug=" + requestedPost)
+    data("blogs?slug=" + requestedPost)
         .then(response => {
             post = response.data;
                            
