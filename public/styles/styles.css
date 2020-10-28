@@ -85,6 +85,7 @@ Home page
 
 .bio-section h1 {
     margin-bottom: 50px;
+    text-align: center;
 }
 
 .bio-section p {
@@ -650,6 +651,7 @@ Contact page End
     .bio-section .container {
         padding-left: 6rem;
         padding-right: 6rem;
+        padding-bottom: 25px;
     }
 
     .skills-container h3 {
@@ -660,6 +662,10 @@ Contact page End
         padding-left: 1rem;
         padding-right: 1rem;
         font-size: 16px;
+    }
+
+    .skills-item:hover {
+        border: 3px solid rgba(0,0,0,.125);
     }
 
     .cta-section {
