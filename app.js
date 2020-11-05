@@ -11,8 +11,6 @@ const _ = require("lodash");
 const nodemailer = require("nodemailer");
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 
-// SSL cert from Certbot
-const letsEncryptReponse = process.env.CERTBOT_RESPONSE;
 // Local Library
 // -- Nodemailer config
 const nodemailerConfig = require("./lib/nodemailer");
@@ -58,16 +56,24 @@ db.once('open', () => {
   console.log("Connected to MongoDB Atlas.");
 });
 
+// Redirect all requests to https
+var https_redirect = function(req, res, next) {
+    if (process.env.NODE_ENV === 'production') {
+        if (req.headers['x-forwarded-proto'] != 'https') {
+            return res.redirect('https://' + req.headers.host + req.url);
+        } else {
+            return next();
+        }
+    } else {
+        return next();
+    }
+};
+
+app.use(https_redirect);
 
 
 
 // ROUTES
-
-// Return the Let's Encrypt certbot response:
-app.get('/.well-known/acme-challenge/:content', function(req, res) {
-    res.send(letsEncryptReponse);
-});
-
 app.get("/", (req, res) => {
     let portfolios = [];
     let blogs = [];
