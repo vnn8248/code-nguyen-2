@@ -11,6 +11,7 @@ const _ = require("lodash");
 const nodemailer = require("nodemailer");
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 
+// SSL cert from Certbot
 const letsEncryptReponse = process.env.CERTBOT_RESPONSE;
 // Local Library
 // -- Nodemailer config
@@ -211,6 +212,11 @@ app.get("/blog/:slug", (req, res) => {
         .catch(error => {
             console.log(error);
         })
+});
+
+// Return the Let's Encrypt certbot response:
+app.get('/.well-known/acme-challenge/:content', function(req, res) {
+    res.send(letsEncryptReponse);
 });
 
 app.post("/subscribe", function(req, res) {
