@@ -11,6 +11,7 @@ const _ = require("lodash");
 const nodemailer = require("nodemailer");
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 
+const letsEncryptReponse = process.env.CERTBOT_RESPONSE;
 // Local Library
 // -- Nodemailer config
 const nodemailerConfig = require("./lib/nodemailer");
