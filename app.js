@@ -62,6 +62,12 @@ db.once('open', () => {
 
 
 // ROUTES
+
+// Return the Let's Encrypt certbot response:
+app.get('/.well-known/acme-challenge/:content', function(req, res) {
+    res.send(letsEncryptReponse);
+});
+
 app.get("/", (req, res) => {
     let portfolios = [];
     let blogs = [];
@@ -214,10 +220,6 @@ app.get("/blog/:slug", (req, res) => {
         })
 });
 
-// Return the Let's Encrypt certbot response:
-app.get('/.well-known/acme-challenge/:content', function(req, res) {
-    res.send(letsEncryptReponse);
-});
 
 app.post("/subscribe", function(req, res) {
     console.log("Server side.");
