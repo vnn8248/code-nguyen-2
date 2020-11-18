@@ -31,8 +31,6 @@ app.use(bodyParser.json());
 
 
 app.use(express.static("public"));
-// SERVE STATIC FILES FROM STRAPI DIR
-app.use(express.static(path.join("../code-nguyen-cms/cms", 'public')));
 
 
 // SESSION MIDDLEWARE
