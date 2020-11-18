@@ -1,9 +1,7 @@
 require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const path = require('path');
 const session = require("express-session");
-const mongoose = require("mongoose");
 const ejs = require("ejs");
 const axios = require("axios");
 const marked = require("marked");
@@ -43,16 +41,16 @@ app.use(session({
 
 
 //CONNECT TO MONGODB
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true
-});
+// mongoose.connect(process.env.MONGODB_URI, {
+//     useNewUrlParser: true, 
+//     useUnifiedTopology: true
+// });
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  console.log("Connected to MongoDB Atlas.");
-});
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', () => {
+//   console.log("Connected to MongoDB Atlas.");
+// });
 
 // Redirect all requests to https
 var https_redirect = function(req, res, next) {
