@@ -35,9 +35,9 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
 
-
+// Local dev static files
 app.use(express.static("public"));
-
+app.use(express.static("../code-nguyen-cms/cms/public"));
 
 // SESSION MIDDLEWARE
 // app.use(session({ 
