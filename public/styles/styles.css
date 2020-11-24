@@ -430,6 +430,11 @@ Individual Post page
     margin: 3rem auto;
 }
 
+#disqus_thread {
+    width: 50%;
+    margin: 50px auto;
+}
+
 /*******************************************************
 Individual Post page End
 ********************************************************/
