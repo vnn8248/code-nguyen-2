@@ -3,16 +3,10 @@ const router = express.Router();
 const _ = require("lodash");
 const marked = require("marked");
 
-// -- Axios config
+// Axios config
 let data = require("../lib/data");
+// Copyright year
 const currentYear = require("../lib/getYear");
-
-
-// middleware that is specific to this router
-router.use(function timeLog (req, res, next) {
-    console.log('Time: ', Date.now());
-    next();
-});
 
 
 router.get("/", (req, res) => {

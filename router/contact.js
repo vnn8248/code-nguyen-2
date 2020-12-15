@@ -3,16 +3,10 @@ const router = express.Router();
 const session = require("express-session");
 const nodemailer = require("nodemailer");
 
-// -- Nodemailer config
+// Nodemailer config
 const nodemailerConfig = require("../lib/nodemailer");
-
+// Copyright year
 const currentYear = require("../lib/getYear");
-
-// middleware that is specific to this router
-router.use(function timeLog (req, res, next) {
-    console.log('Time: ', Date.now());
-    next();
-});
 
 // SESSION MIDDLEWARE
 router.use(session({ 
@@ -60,7 +54,6 @@ router.post("/", (req, res) => {
             res.redirect("/contact");
         } else if (!error) {
             console.log("Message sent: %s", info.messageId);
-            // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
             req.session.valid = true;
             res.redirect("/contact");
         }

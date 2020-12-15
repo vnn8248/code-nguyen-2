@@ -2,15 +2,10 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 
-// -- Axios config
+// Axios config
 let data = require("../lib/data");
+// Copyright year
 const currentYear = require("../lib/getYear");
-
-// middleware that is specific to this router
-router.use(function timeLog (req, res, next) {
-    console.log('Time: ', Date.now());
-    next();
-});
 
 router.get("/", (req, res) => {
     let portfolios = [];

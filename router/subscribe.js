@@ -3,12 +3,6 @@ const express = require("express");
 const router = express.Router();
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 
-// middleware that is specific to this router
-router.use(function timeLog (req, res, next) {
-    console.log('Time: ', Date.now());
-    next();
-});
-
 router.post("/", (req, res) => {
     const email = req.body.email;
         
